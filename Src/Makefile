@@ -4,7 +4,7 @@ LIBPREFIX=$(PREFIX)/lib
 INCLUDEPREFIX=$(PREFIX)/include
 OPENCVFLAGS=$(shell pkg-config --cflags opencv)
 OPENCVLIBS=$(shell pkg-config --libs opencv)
-CXX=ccache g++ -Wall -Wno-int-in-bool-context -O2 -DEIGEN_NO_DEBUG
+CXX=ccache g++ -Wall -Wno-int-in-bool-context -O2 -DEIGEN_NO_DEBUG -Wno-deprecated-declarations -Wno-maybe-uninitialized -Wno-unused-but-set-variable
 
 .cpp.o:
 	$(CXX) -fPIC -c $< $(OPENCVFLAGS)
